@@ -18,6 +18,7 @@ class GamePad:
     
     def __init__(self, gamepadNum, threshold):
         self.gamepad = logic.joysticks[gamepadNum]
+        self.gamepadNum = gamepadNum
         self.name = self.gamepad.name
         self.numAxis = self.gamepad.numAxis
         self.numButtons = self.gamepad.numButtons
@@ -76,5 +77,5 @@ class GamePad:
         XInputSetState.restype = ctypes.c_uint
         
         vib = XINPUT_VIBRATION(left, right)
-        XInputSetState(0, ctypes.byref(vib))
+        XInputSetState(self.gamepadNum, ctypes.byref(vib))
         
