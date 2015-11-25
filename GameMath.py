@@ -41,3 +41,12 @@ def clamp(valueToClamp, minLimit, maxLimit):
         return minLimit
     else:
         return valueToClamp
+
+'''
+def clamp(minLimit, maxLimit, value):
+    return max(minLimit, min(value, maxLimit))
+'''
+
+def clamp2(valueToClamp, minLimit, maxLimit):
+    return max(minLimit, min(valueToClamp, maxLimit))
+    
